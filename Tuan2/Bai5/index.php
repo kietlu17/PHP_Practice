@@ -16,7 +16,7 @@
         </ul></div>
         <div>
             <?php
-
+                if(isset($_REQUEST['pages'])){
                     switch ($_REQUEST['pages']){
                         case 'dangnhap': 
                             include 'view/dangNhap.php';
@@ -27,9 +27,14 @@
                         case 'dangKi': 
                             include 'view/dangKi.php';
                             break;
+                        case 'htdk': 
+                            include 'view/htdk.php';
+                            break;
                         default:
                             echo 'Xin chào';
                     }
+                }
+
       
             ?>
         </div>
