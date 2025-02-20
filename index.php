@@ -8,8 +8,8 @@
 <body>
     <h1>PHP thực hành</h1>
     <a href="Tuan1">Tuần 1</a>
-    <a href=""></a>
-    <a href=""></a>
+    <a href="Tuan2"> Tuần 2</a>
+    <a href="Tuan2Them">Tuần 2 Thêm</a>
     <a href=""></a>
 </body>
 </html>
