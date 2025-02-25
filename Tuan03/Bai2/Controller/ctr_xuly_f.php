@@ -1,7 +1,7 @@
 <?php
     class xuly_f{
         public function upload($file){
-            if($this->checkSize($file['size'])){
+            if($this->checkSize($file['size'])&& $this->checkType($file['type'])){
                 echo var_dump($file);
                 echo 'upload file thanh cong';
             }else{
@@ -15,6 +15,15 @@
                 return false;
             else
                 return true;
+        }
+
+        private function checkType($type){
+            $arrType = array("image/png","image/jng");
+            if(in_array($type, $arrType))
+                return true;
+            else
+                return false;
+
         }
     }
     ?>
