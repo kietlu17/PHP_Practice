@@ -1,0 +1,27 @@
+services:
+  web:
+    build: ./config
+    container_name: web
+    volumes:
+      - ./:/var/www/html
+
+    ports:
+      - 80:80
+
+  db:
+    image: mysql:latest
+    container_name: mysql_db
+    volumes:
+      - ./data:/var/lib/mysql/
+      - ./db-data/php_p.sql:/docker-entrypoint-initdb.d/php_p.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: qlbh
+      MYSQL_USER: kiet
+      MYSQL_PASSWORD: 1
+    ports:
+      - 30:3036
+
+volumes:
+  db:
+    
