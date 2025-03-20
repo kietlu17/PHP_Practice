@@ -1,6 +1,6 @@
 <?php
 
-    include 'mConnect.php';
+    include_once 'mConnect.php';
     class mUser{
         public function ck_user($acc, $pwd){
             $pwd = md5($pwd);

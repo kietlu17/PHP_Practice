@@ -5,10 +5,11 @@
             $p = new mProducts();
             $result = $p->select_all();
             if($result->num_rows >0){
-                while($num = $result->fetch_assoc()){
-                    echo $num['ten'], $num['gia'] ;
-                    echo '<br>';
-                }
+                // while($num = $result->fetch_assoc()){
+                //     echo $num['ten'], $num['gia'] ;
+                //     echo '<br>';
+                // }
+                return $result;
             }
             else 
                 echo 'không có sản phẩm';
@@ -18,12 +19,26 @@
             $p = new mProducts();
             $result = $p->select_id($id);
             if($result->num_rows >0){
-                while($num = $result->fetch_assoc()){
-                    echo $num['ten'], $num['gia'] ;
-                }
+                // while($num = $result->fetch_assoc()){
+                //     echo $num['ten'], $num['gia'] ;
+                // }
+                return $result;
             }
             else 
-                echo 'không có sản phẩm';
+                return false;
+        }
+
+        public function show_name($name){
+            $p = new mProducts();
+            $result = $p->select_name($name);
+            if($result->num_rows >0){
+                // while($num = $result->fetch_assoc()){
+                //     echo $num['ten'], $num['gia'] ;
+                // }
+                return $result;
+            }
+            else 
+                return false;
         }
     }
 ?>

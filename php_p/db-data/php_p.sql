@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Mar 11, 2025 at 03:20 PM
+-- Generation Time: Mar 17, 2025 at 03:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,7 +26,6 @@
 --
 -- Table structure for table `loai`
 --
--- CREATE Database qlbh;
 use qlbh;
 
 CREATE TABLE `loai` (
@@ -39,8 +38,11 @@ CREATE TABLE `loai` (
 --
 
 INSERT INTO `loai` (`maloai`, `ten`) VALUES
-(1, 'Giải Khát'),
-(2, 'Thịt');
+(3, 'pc handheld'),
+(4, 'Nvdia RTX'),
+(5, 'AMD RX'),
+(6, 'AMD'),
+(7, 'INTEL');
 
 -- --------------------------------------------------------
 
@@ -71,15 +73,21 @@ CREATE TABLE `sanpham` (
   `masp` int(11) NOT NULL,
   `ten` varchar(255) DEFAULT NULL,
   `gia` float DEFAULT NULL,
-  `maloai` int(11) DEFAULT NULL
+  `maloai` int(11) DEFAULT NULL,
+  `img_dir` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`masp`, `ten`, `gia`, `maloai`) VALUES
-(1, 'COCA COLA', 10000, 1);
+INSERT INTO `sanpham` (`masp`, `ten`, `gia`, `maloai`, `img_dir`) VALUES
+(2, 'STEAM DESK', 10000000, 3, 'Steam-Deck-OLED-THumb.jpg'),
+(3, 'LEGION GO', 20000000, 3, 'legion go.png'),
+(4, 'ROG ALLY', 20000000, 3, 'rog ally.png'),
+(5, 'MSI CLAW', 23000000, 3, 'msi claw.png'),
+(6, 'Ayaneo Air 1S', 8000000, 3, 'ay air.jpg'),
+(7, 'RYZEN9 9950X', 16800000, 6, 'r9 9950x.webp');
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `loai`
 --
 ALTER TABLE `loai`
-  MODIFY `maloai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `maloai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -153,7 +161,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `masp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `masp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -12,7 +12,7 @@
 
 
     <header style="height: 200px; width: 100%; background-color: gray;"></header>
-    <nav>
+    <nav style="height: 30px; ">
         <a href="index.php">Trang Chủ</a>
         <?php
                 if(isset($_SESSION['role'])){
@@ -23,7 +23,10 @@
                     echo '<a href="index.php?pages=dk">Đăng Ký</a>';
                 }
             ?>
-  
+        <form action="" method="get" style=" float: right;">
+            <input type="search" name="tim" id="">
+            <input type="submit" value="search" name="btntim">
+        </form>
     </nav>
     <section style="width: 100%;">
         <div style="float: left; width: 30%;">
@@ -36,13 +39,15 @@
                     // echo '<a href="index.php?pages=dn">GIẢI KHÁT</a>';
                     include 'view/ht_loai.php';
                     // echo '<a href="index.php?pages=dk">Đăng Ký</a>';
-                }}
+                }
+            }else
+            include 'view/ht_loai.php';
 
             ?>  
         </div>
         <div style="float: left; width: 70%;">
         <?php
-            if (isset($_REQUEST['pages'])){
+            if (isset($_REQUEST['pages']) && !isset($_REQUEST['tim'])){
                 switch($_REQUEST['pages']){
                     case 'dn':
                         include 'view/dangNhap.php';
@@ -54,21 +59,29 @@
                     case 'dx':
                         include 'view/dangXuat.php';
                         break;
-                    case 1:
-                    case 2:
+                    case $_REQUEST['pages'] >=1 && $_REQUEST['pages'] <=10:
                         // echo 'adf';
-                        print_r(get_included_files());
+                        // print_r(get_included_files());
                         include 'view/ht.php';
                         break;  
 
                     case 'show_all':
-                        print_r(get_included_files());
+                        // print_r(get_included_files());
                         include 'view/ht.php';
                         break;  
                     default:
-                        echo'xin chào';
+                        echo'xin chào2';
                 }
             }
+            else if(isset($_REQUEST['btntim'])){
+                include 'view/ht.php';
+        
+            }
+            else
+                    include 'view/ht.php';
+            // if(){
+            //     echo 'xinh còa';
+            // }
         ?>
         </div>
     </section>

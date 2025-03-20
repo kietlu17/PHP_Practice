@@ -1,5 +1,5 @@
 <?php
-    include 'mConnect.php';
+    include_once 'mConnect.php';
     class mTOP{
         public function select_all(){
             $p = new mConnect();
