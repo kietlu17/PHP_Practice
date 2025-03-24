@@ -1,24 +1,31 @@
 <?php
-include 'mConnect.php';
-class mUser{
-    public function insert_user($user, $pwd){
-        $p = new mConnect();
-        $conn = $p->connectDB();
-        $pwd = md5($pwd);
-        $sql = "INSERT INTO user (id, username, password, id_role) VALUES (NULL, '$user', '$pwd', NULL);";
-        $result = $conn->query($sql);
-        $p->disconnectDB($conn);
-        return $result;
-    }
+include_once "mConnect.php";
+    class mUser{
+        public function select_usr($acc, $pwd){
+            $p = new mConnect();
+            $conn = $p->connectDB();
+            $sql = "select * from user where username = '$acc' and password ='$pwd'";
+            $result = $conn->query($sql);
+            $p->disconnectDB($conn);
+            return $result;
+        }
 
-    public function select_user($user, $pwd){
-        $p = new mConnect();
-        $conn = $p->connectDB();
-        $pwd = md5($pwd);
-        $sql = "select * from user where username = '$user' and password= '$pwd'";
-        $result = $conn->query($sql);
-        $p->disconnectDB($conn);
-        return $result;
+        public function insert_usr($acc, $pwd){
+            $p = new mConnect();
+            $conn = $p->connectDB();
+            $sql = "insert into user (username, password) values( '$acc','$pwd')";
+            $result = $conn->query($sql);
+            $p->disconnectDB($conn);
+            return $result;
+        }
+
+        public function select_usrn($acc){
+            $p = new mConnect();
+            $conn = $p->connectDB();
+            $sql = "select * from user where username = '$acc'";
+            $result = $conn->query($sql);
+            $p->disconnectDB($conn);
+            return $result;
+        }
     }
-}
 ?>
